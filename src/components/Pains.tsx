@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { painPoints, site } from "@/lib/content";
+import { painPoints } from "@/lib/content";
 import Reveal, { SectionHeading } from "./Reveal";
 import Icon from "./Icons";
 import { CtaButton } from "./LeadModal";
@@ -20,7 +20,7 @@ export default function Pains() {
             <Reveal delay={0.1}>
               <div className="mt-8 rounded-3xl bg-navy-900 p-6 text-white sm:p-7">
                 <p className="text-[15px] leading-relaxed text-white/80">
-                  <b className="text-white">{site.name}</b> — Yoshlar ishlari agentligi qoshidagi Yoshlar tadbirkorligini rivojlantirish jamg‘armasi hamda FAZZA Management School hamkorligida tashkil etilgan, <b className="text-white">yosh tadbirkorlarning biznesni professional boshqarish bo‘yicha amaliy ko‘nikmalarini rivojlantirish</b> va yangi brendlarning yetishib chiqishiga ko‘maklashishga qaratilgan biznes ta’lim dasturi.
+                  Biznesingizni <b className="text-white">tizimli boshqarishga</b> o‘tkazing va <b className="text-white">keyingi bosqichga</b> olib chiqing. 12 kunlik oflayn dastur — 70% amaliyot, praktik ekspertlar va mentorlar bilan.
                 </p>
               </div>
             </Reveal>

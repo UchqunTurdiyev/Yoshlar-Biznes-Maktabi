@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { partners, pricing } from "@/lib/content";
+import { partners, pricing, site } from "@/lib/content";
 import Counter from "./Counter";
 import { CtaButton } from "./LeadModal";
 
@@ -31,7 +31,7 @@ export default function Hero() {
           </motion.h1>
 
           <motion.p initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.25, ease }} className="mt-6 max-w-xl text-lg leading-relaxed text-white/75 sm:text-xl">
-            Biznesingizni <b className="font-bold text-white">tizimli boshqarishga</b> o‘tkazing va <b className="font-bold text-white">keyingi bosqichga</b> olib chiqing. 12 kunlik oflayn dastur — 70% amaliyot, praktik ekspertlar va mentorlar bilan.
+            <b className="font-bold text-white">{site.name}</b> — Yoshlar ishlari agentligi qoshidagi Yoshlar tadbirkorligini rivojlantirish jamg‘armasi hamda FAZZA Management School hamkorligida tashkil etilgan, <b className="font-bold text-white">yosh tadbirkorlarning biznesni professional boshqarish bo‘yicha amaliy ko‘nikmalarini rivojlantirish</b> va yangi brendlarning yetishib chiqishiga ko‘maklashishga qaratilgan biznes ta’lim dasturi.
           </motion.p>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4, ease }} className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -54,9 +54,9 @@ export default function Hero() {
 
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.7 }} className="mt-10">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/45">Hamkorlikda tashkil etilgan</p>
-            <div className="mt-3 inline-flex flex-wrap items-center gap-x-6 gap-y-3 rounded-2xl bg-white px-5 py-3 shadow-xl">
+            <div className="mt-3 inline-flex max-w-full flex-nowrap items-center gap-x-3 rounded-2xl bg-white px-3 py-2.5 shadow-xl sm:gap-x-6 sm:px-5 sm:py-3">
               {partners.map((p) => (
-                <Image key={p.name} src={p.src} alt={p.name} width={p.w} height={p.h} className="h-7 w-auto sm:h-8" priority />
+                <Image key={p.name} src={p.src} alt={p.name} width={p.w} height={p.h} className="h-5 w-auto min-w-0 object-contain sm:h-8" priority />
               ))}
             </div>
           </motion.div>
