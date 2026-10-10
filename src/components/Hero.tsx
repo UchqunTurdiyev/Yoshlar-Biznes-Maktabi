@@ -2,18 +2,13 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { locations, partners, pricing, formatSum } from "@/lib/content";
-import Countdown, { nextLocation } from "./Countdown";
+import { partners, pricing } from "@/lib/content";
 import Counter from "./Counter";
-import LeadForm from "./LeadForm";
 import { CtaButton } from "./LeadModal";
-import Icon from "./Icons";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export default function Hero() {
-  const next = nextLocation() ?? locations[0];
-
   return (
     <section className="noise relative isolate overflow-hidden bg-navy-950 py-20 text-white sm:py-28 lg:pb-24">
       {/* Fon */}
@@ -22,7 +17,7 @@ export default function Hero() {
       <div className="absolute -right-32 top-48 -z-10 h-[420px] w-[420px] rounded-full bg-brand-400/30 blur-[110px] animate-float [animation-delay:-3s]" />
       <div className="absolute bottom-0 left-1/2 -z-10 h-[260px] w-[900px] -translate-x-1/2 rounded-full bg-amber/10 blur-[120px]" />
 
-      <div className="mx-auto grid max-w-7xl items-start gap-12 px-4 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div>
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease }} className="inline-flex flex-wrap items-center gap-2 rounded-full border border-white/15 bg-white/5 py-1.5 pl-1.5 pr-4 text-xs font-semibold text-white/80 backdrop-blur">
             <span className="rounded-full bg-amber px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-wide text-navy-950">{pricing.grantPercent}% grant</span>
@@ -39,8 +34,8 @@ export default function Hero() {
             Biznesingizni <b className="font-bold text-white">tizimli boshqarishga</b> o‘tkazing va <b className="font-bold text-white">keyingi bosqichga</b> olib chiqing. 12 kunlik oflayn dastur — 70% amaliyot, praktik ekspertlar va mentorlar bilan.
           </motion.p>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4, ease }} className="mt-8 flex flex-col gap-3 sm:flex-row lg:hidden">
-            <CtaButton source="hero-mobile" className="w-full sm:w-auto">Grantga ariza qoldirish</CtaButton>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4, ease }} className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <CtaButton source="hero" className="w-full sm:w-auto">Grantga ariza qoldirish</CtaButton>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.45, ease }} className="mt-10 grid max-w-xl grid-cols-2 gap-3 sm:grid-cols-4">
@@ -67,35 +62,6 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Forma kartasi */}
-        <motion.div id="ariza" initial={{ opacity: 0, y: 40, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.9, delay: 0.3, ease }} className="relative hidden lg:block">
-          <div className="absolute -inset-px rounded-[2rem] bg-gradient-to-b from-white/30 via-white/5 to-amber/30" />
-          <div className="relative rounded-[2rem] bg-navy-900/90 p-7 backdrop-blur-xl">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-sky">Eng yaqin oqim</p>
-                <p className="mt-1 flex items-center gap-1.5 font-display text-lg font-semibold">
-                  <Icon name="pin" className="h-4 w-4 text-amber" /> {next.city} · {next.label}
-                </p>
-              </div>
-              <span className="relative flex h-3 w-3">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber opacity-70" />
-                <span className="relative inline-flex h-3 w-3 rounded-full bg-amber" />
-              </span>
-            </div>
-            <div className="mt-4">
-              <Countdown date={next.date} compact />
-            </div>
-            <div className="my-6 flex items-end justify-between border-y border-white/10 py-4">
-              <div>
-                <p className="text-xs text-white/50 line-through">{formatSum(pricing.full)} so‘m</p>
-                <p className="num font-display text-2xl font-semibold text-white">{formatSum(pricing.grant)} <span className="text-base text-white/60">so‘m</span></p>
-              </div>
-              <span className="rounded-xl bg-amber/15 px-3 py-1.5 text-sm font-extrabold text-amber">−{pricing.grantPercent}% grant</span>
-            </div>
-            <LeadForm variant="dark" source="hero" />
-          </div>
-        </motion.div>
       </div>
     </section>
   );

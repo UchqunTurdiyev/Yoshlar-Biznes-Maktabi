@@ -46,8 +46,8 @@ export default function Home() {
     <>
       <Header />
       <main>
-        <Pains />
         <Hero />
+        <Pains />
         <Marquee />
         <Program />
         <Locations />
