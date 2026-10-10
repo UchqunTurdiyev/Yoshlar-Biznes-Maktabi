@@ -15,7 +15,7 @@ export default function Hero() {
   const next = nextLocation() ?? locations[0];
 
   return (
-    <section className="noise relative isolate overflow-hidden bg-navy-950 pb-16 pt-28 text-white sm:pt-32 lg:pb-24 lg:pt-36">
+    <section className="noise relative isolate overflow-hidden bg-navy-950 py-20 text-white sm:py-28 lg:pb-24">
       {/* Fon */}
       <div className="bg-grid absolute inset-0 -z-10" />
       <div className="absolute -left-40 top-10 -z-10 h-[520px] w-[520px] rounded-full bg-brand/50 blur-[120px] animate-float" />

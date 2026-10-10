@@ -8,7 +8,7 @@ import { CtaButton } from "./LeadModal";
 
 export default function Pains() {
   return (
-    <section id="dastur" className="relative overflow-hidden py-20 sm:py-28">
+    <section id="dastur" className="relative overflow-hidden pb-20 pt-28 sm:pb-28 sm:pt-32 lg:pt-36">
       <div className="bg-grid-light absolute inset-0 -z-10" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">

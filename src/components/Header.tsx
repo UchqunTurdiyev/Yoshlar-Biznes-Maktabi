@@ -43,7 +43,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled ? "bg-navy-950/85 py-2.5 shadow-[0_10px_30px_-15px_rgb(0_0_0/0.5)] backdrop-blur-xl" : "py-4"}`}>
+    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled ? "bg-navy-950/85 py-2.5 shadow-[0_10px_30px_-15px_rgb(0_0_0/0.5)] backdrop-blur-xl" : "bg-navy-950 py-4"}`}>
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
         <Logo />
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Asosiy menyu">
