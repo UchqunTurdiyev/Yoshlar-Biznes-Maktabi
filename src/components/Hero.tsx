@@ -10,14 +10,14 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 export default function Hero() {
   return (
-    <section className="noise relative isolate overflow-hidden bg-navy-950 py-20 text-white sm:py-28 lg:pb-24">
+    <section className="noise relative isolate flex min-h-[100svh] items-center overflow-hidden bg-navy-950 pb-16 pt-28 text-white sm:pb-20 sm:pt-32">
       {/* Fon */}
       <div className="bg-grid absolute inset-0 -z-10" />
       <div className="absolute -left-40 top-10 -z-10 h-[520px] w-[520px] rounded-full bg-brand/50 blur-[120px] animate-float" />
       <div className="absolute -right-32 top-48 -z-10 h-[420px] w-[420px] rounded-full bg-brand-400/30 blur-[110px] animate-float [animation-delay:-3s]" />
       <div className="absolute bottom-0 left-1/2 -z-10 h-[260px] w-[900px] -translate-x-1/2 rounded-full bg-amber/10 blur-[120px]" />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6">
         <div>
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease }} className="inline-flex flex-wrap items-center gap-2 rounded-full border border-white/15 bg-white/5 py-1.5 pl-1.5 pr-4 text-xs font-semibold text-white/80 backdrop-blur">
             <span className="rounded-full bg-amber px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-wide text-navy-950">{pricing.grantPercent}% grant</span>
