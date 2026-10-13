@@ -16,6 +16,15 @@ export const partners = [
   { name: "FAZZA Management School", src: "/images/partners/fazza.png", w: 1310, h: 267 },
 ];
 
+// Maktabni bitirgan asoschilarning brendlari (karusel). fit: "contain" — keng, oq fonli logolar kesilmasligi uchun
+export const alumniBrands = [
+  { name: "PIPLS", src: "/images/alumni/pipls.jpg", fit: "cover" },
+  { name: "YESS!", src: "/images/alumni/yess.jpg", fit: "cover" },
+  { name: "q.watt", src: "/images/alumni/qwatt.jpg", fit: "cover" },
+  { name: "SAN SEB", src: "/images/alumni/sanseb.jpg", fit: "cover" },
+  { name: "DATA ta’lim stansiyasi", src: "/images/alumni/data.jpg", fit: "contain" },
+] as const;
+
 export const painPoints = [
   { title: "Tizim yo‘q, hammasini o‘zim qilaman", icon: "system" },
   { title: "Sotuv past, mijoz oqimi barqaror emas", icon: "sales" },

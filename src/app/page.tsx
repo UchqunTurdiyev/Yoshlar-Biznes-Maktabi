@@ -6,6 +6,7 @@ import Program from "@/components/Program";
 import Locations from "@/components/Locations";
 import Modules from "@/components/Modules";
 import Mentors from "@/components/Mentors";
+import AlumniBrands from "@/components/AlumniBrands";
 import Results from "@/components/Results";
 import Pricing from "@/components/Pricing";
 import Faq from "@/components/Faq";
@@ -53,6 +54,7 @@ export default function Home() {
         <Locations />
         <Modules />
         <Mentors />
+        <AlumniBrands />
         <Results />
         <Pricing />
         <Faq />
