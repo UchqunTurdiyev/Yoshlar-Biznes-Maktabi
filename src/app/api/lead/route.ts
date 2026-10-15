@@ -13,6 +13,15 @@ export const dynamic = "force-dynamic";
 const json = (data: unknown, status = 200) => NextResponse.json(data, { status });
 
 export async function POST(req: NextRequest) {
+  try {
+    return await handle(req);
+  } catch (e) {
+    console.error("[lead] kutilmagan xato:", (e as Error).stack || e);
+    return json({ ok: false, error: "Serverda xatolik. Iltimos, birozdan so‘ng qayta urinib ko‘ring." }, 500);
+  }
+}
+
+async function handle(req: NextRequest) {
   // 1. CSRF: faqat o‘z saytimizdan
   if (!sameOrigin(req)) return json({ ok: false, error: "forbidden" }, 403);
 
@@ -51,7 +60,11 @@ export async function POST(req: NextRequest) {
   // 5. Takroriy arizalar (24 soat ichida bir xil raqam) — CRMni ifloslantirmaymiz
   const phoneHash = sha256(d.phone);
   const id = randomId(12);
-  const isNew = await setOnce(`dup:${phoneHash}`, id, 60 * 60 * 24);
+  // Saqlash ishlamasa ham lid yo‘qolmasin — takror tekshiruvini o‘tkazib yuboramiz
+  const isNew = await setOnce(`dup:${phoneHash}`, id, 60 * 60 * 24).catch((e) => {
+    console.error("[lead] takror tekshiruvi ishlamadi:", (e as Error).message);
+    return true;
+  });
   if (!isNew) return json({ ok: true, duplicate: true });
 
   const ua = (req.headers.get("user-agent") || "").slice(0, 400);
@@ -68,11 +81,19 @@ export async function POST(req: NextRequest) {
     createdAt: Date.now(),
     status: "new",
     phoneHash,
-    pii: sealPII({ name: d.name, phone: d.phone, region: d.region, ip, ua }),
+    pii: "",
     utm: d.utm,
     meta: { fbp: d.fbp, fbc, eventSourceUrl: d.pageUrl, leadEventId: d.eventId },
   };
-  await saveLead(lead);
+  // Saqlash (shifrlash + baza) xato bersa ham Telegram/amoCRM/Metaga baribir yuboramiz
+  let stored = false;
+  try {
+    lead.pii = sealPII({ name: d.name, phone: d.phone, region: d.region, ip, ua });
+    await saveLead(lead);
+    stored = true;
+  } catch (e) {
+    console.error("[lead] saqlanmadi (UPSTASH_* va DATA_ENCRYPTION_KEY ni tekshiring):", (e as Error).message);
+  }
 
   // 6. Integratsiyalar (parallel): Meta CAPI ‖ amoCRM → Telegram
   const capiTask = sendCapi({
@@ -91,10 +112,11 @@ export async function POST(req: NextRequest) {
     }
     const withAmo = amoLeadId ? { ...lead, amoLeadId } : lead;
     const tgMsgs = await notifyNewLead(withAmo, { name: d.name, phone: d.phone, region: d.region });
+    if (!stored) return;
     await updateLead(id, (l) => {
       if (amoLeadId) l.amoLeadId = amoLeadId;
       if (tgMsgs.length) l.tg = tgMsgs;
-    });
+    }).catch((e) => console.error("[lead] yangilanmadi:", (e as Error).message));
   })();
 
   await Promise.allSettled([capiTask, crmTask]);

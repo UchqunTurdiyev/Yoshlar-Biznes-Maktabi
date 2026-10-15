@@ -43,7 +43,8 @@ export const env = {
   // Saqlash
   upstashUrl: read("UPSTASH_REDIS_REST_URL").replace(/\/+$/, ""),
   upstashToken: read("UPSTASH_REDIS_REST_TOKEN"),
-  dataDir: read("DATA_DIR", "./data"),
+  // Vercel'da faqat /tmp yoziladi (vaqtinchalik) — doimiy saqlash uchun Upstash kerak
+  dataDir: read("DATA_DIR", process.env.VERCEL ? "/tmp/ybm-data" : "./data"),
 
   // Narxlar (so‘m)
   priceGrant: Number(read("PRICE_GRANT_UZS", "7950000")),
