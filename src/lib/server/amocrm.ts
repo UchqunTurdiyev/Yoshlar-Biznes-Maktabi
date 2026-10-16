@@ -18,6 +18,26 @@ async function amo<T>(path: string, init?: RequestInit): Promise<T> {
   return (text ? JSON.parse(text) : undefined) as T;
 }
 
+/**
+ * Saytdagi viloyat → amoCRM "Viloyati:" (select) maydonidagi variant nomi.
+ * Select maydonga ro‘yxatda yo‘q qiymat yuborilsa amoCRM butun so‘rovni rad etadi,
+ * shuning uchun mos variant bo‘lmasa maydon to‘ldirilmaydi (viloyat baribir izohga yoziladi).
+ */
+const AMO_REGION: Record<string, string> = {
+  "Toshkent shahri": "Toshkent SH",
+  "Toshkent viloyati": "Toshkent V",
+  Andijon: "Andijon",
+  Buxoro: "Buxoro",
+  "Farg‘ona": "Farg'ona",
+  Jizzax: "Jizzax",
+  Namangan: "Namangan",
+  Navoiy: "Navoiy",
+  Qashqadaryo: "Qashqadaryo",
+  Samarqand: "Samarqand",
+  Sirdaryo: "Sirdaryo",
+  Surxondaryo: "Surxandaryo",
+};
+
 export type AmoLeadInput = {
   name: string;
   phone: string;
@@ -34,7 +54,8 @@ export async function createAmoLead(input: AmoLeadInput): Promise<number | null>
   if (!has.amo()) return null;
 
   const leadFields: unknown[] = [];
-  if (env.amoRegionFieldId) leadFields.push({ field_id: env.amoRegionFieldId, values: [{ value: input.region }] });
+  const amoRegion = AMO_REGION[input.region];
+  if (env.amoRegionFieldId && amoRegion) leadFields.push({ field_id: env.amoRegionFieldId, values: [{ value: amoRegion }] });
 
   const payload = [
     {
