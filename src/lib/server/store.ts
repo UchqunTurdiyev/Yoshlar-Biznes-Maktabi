@@ -17,6 +17,9 @@ export type LeadPII = {
   name: string;
   phone: string; // +998XXXXXXXXX
   region: string;
+  age?: number;
+  employees?: number;
+  turnover?: string;
   ip?: string;
   ua?: string;
 };

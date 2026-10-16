@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { regions } from "./content";
+import { regions, turnoverOptions } from "./content";
 
 /** Telefonni +998XXXXXXXXX ko‘rinishiga keltiradi; noto‘g‘ri bo‘lsa null */
 export function normalizeUzPhone(input: string): string | null {
@@ -36,7 +36,10 @@ export const leadSchema = z.object({
       }
       return p;
     }),
+  age: z.coerce.number({ invalid_type_error: "Yoshingizni kiriting" }).int("Yoshingizni kiriting").min(14, "Yosh 14 dan kam bo‘lmasin").max(99, "Yoshni to‘g‘ri kiriting"),
   region: z.enum(regions, { errorMap: () => ({ message: "Manzilni tanlang" }) }),
+  employees: z.coerce.number({ invalid_type_error: "Xodimlar sonini kiriting" }).int("Xodimlar sonini kiriting").min(0, "Xodimlar sonini kiriting").max(100000, "Xodimlar sonini to‘g‘ri kiriting"),
+  turnover: z.enum(turnoverOptions, { errorMap: () => ({ message: "Aylanmani tanlang" }) }),
   consent: z.literal(true, { errorMap: () => ({ message: "Rozilik talab qilinadi" }) }),
   // Texnik maydonlar
   eventId: z.string().regex(/^[A-Za-z0-9_-]{8,64}$/),

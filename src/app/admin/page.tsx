@@ -14,10 +14,10 @@ export default async function AdminPage() {
 
   const leads = await listLeads(500);
   const rows: AdminLead[] = leads.map((l) => {
-    let pii = { name: "—", phone: "—", region: "—" };
+    let pii: Pick<AdminLead, "name" | "phone" | "region" | "age" | "employees" | "turnover"> = { name: "—", phone: "—", region: "—" };
     try {
       const p = openPII(l);
-      pii = { name: p.name, phone: p.phone, region: p.region };
+      pii = { name: p.name, phone: p.phone, region: p.region, age: p.age, employees: p.employees, turnover: p.turnover };
     } catch {}
     return {
       id: l.id,

@@ -14,12 +14,12 @@ const cell = (v: unknown) => {
 export async function GET() {
   if (!(await isAdmin())) return NextResponse.json({ ok: false }, { status: 401 });
   const leads = await listLeads(5000);
-  const rows = [["Sana", "Ism", "Telefon", "Manzil", "Holat", "Xarid (so‘m)", "amoCRM ID", "utm_source", "utm_campaign"]];
+  const rows = [["Sana", "Ism", "Telefon", "Manzil", "Yoshi", "Xodimlar soni", "Aylanma", "Holat", "Xarid (so‘m)", "amoCRM ID", "utm_source", "utm_campaign"]];
   for (const l of leads) {
     const p = openPII(l);
     rows.push([
       new Date(l.createdAt).toLocaleString("ru-RU", { timeZone: "Asia/Tashkent" }),
-      p.name, p.phone, p.region, l.status,
+      p.name, p.phone, p.region, String(p.age ?? ""), String(p.employees ?? ""), p.turnover ?? "", l.status,
       String(l.purchase?.valueUzs ?? ""), String(l.amoLeadId ?? ""),
       l.utm?.utm_source ?? "", l.utm?.utm_campaign ?? "",
     ]);

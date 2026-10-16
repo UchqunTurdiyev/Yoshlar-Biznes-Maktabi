@@ -88,7 +88,7 @@ async function handle(req: NextRequest) {
   // Saqlash (shifrlash + baza) xato bersa ham Telegram/amoCRM/Metaga baribir yuboramiz
   let stored = false;
   try {
-    lead.pii = sealPII({ name: d.name, phone: d.phone, region: d.region, ip, ua });
+    lead.pii = sealPII({ name: d.name, phone: d.phone, region: d.region, age: d.age, employees: d.employees, turnover: d.turnover, ip, ua });
     await saveLead(lead);
     stored = true;
   } catch (e) {
@@ -106,12 +106,12 @@ async function handle(req: NextRequest) {
   const crmTask = (async () => {
     let amoLeadId: number | null = null;
     try {
-      amoLeadId = await createAmoLead({ name: d.name, phone: d.phone, region: d.region, utm: d.utm, pageUrl: d.pageUrl, siteLeadId: id });
+      amoLeadId = await createAmoLead({ name: d.name, phone: d.phone, region: d.region, age: d.age, employees: d.employees, turnover: d.turnover, utm: d.utm, pageUrl: d.pageUrl, siteLeadId: id });
     } catch (e) {
       console.error("[amoCRM] lid yaratilmadi:", (e as Error).message);
     }
     const withAmo = amoLeadId ? { ...lead, amoLeadId } : lead;
-    const tgMsgs = await notifyNewLead(withAmo, { name: d.name, phone: d.phone, region: d.region });
+    const tgMsgs = await notifyNewLead(withAmo, { name: d.name, phone: d.phone, region: d.region, age: d.age, employees: d.employees, turnover: d.turnover });
     if (!stored) return;
     await updateLead(id, (l) => {
       if (amoLeadId) l.amoLeadId = amoLeadId;

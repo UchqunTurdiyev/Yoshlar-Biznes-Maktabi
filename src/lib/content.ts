@@ -59,7 +59,7 @@ export const uniques = [
 ];
 
 export const locations = [
-  { city: "Farg‘ona", date: "2026-10-31", label: "31.10.2026" },
+  { city: "Andijon", date: "2026-10-31", label: "31.10.2026" },
   { city: "Samarqand", date: "2026-11-07", label: "07.11.2026" },
   { city: "Nukus", date: "2026-11-14", label: "14.11.2026" },
 ];
@@ -224,7 +224,7 @@ export const faq = [
   },
   {
     q: "Dastur qancha davom etadi va qayerda o‘tadi?",
-    a: "Dastur oflayn formatda, 12 kun (2 oy) davom etadi. Farg‘ona — 31.10.2026, Samarqand — 07.11.2026, Nukus — 14.11.2026 dan boshlanadi.",
+    a: "Dastur oflayn formatda, 12 kun (2 oy) davom etadi. Andijon — 31.10.2026, Samarqand — 07.11.2026, Nukus — 14.11.2026 dan boshlanadi.",
   },
   {
     q: "Darslar qanday o‘tadi?",
@@ -256,5 +256,7 @@ export const regions = [
   "Sirdaryo",
   "Surxondaryo",
 ] as const;
+
+export const turnoverOptions = ["0 – 10 000 $", "10 000 $ – 50 000 $", "50 000 $+"] as const;
 
 export const formatSum = (n: number) => n.toLocaleString("ru-RU").replace(/,/g, " ").replace(/ /g, " ");

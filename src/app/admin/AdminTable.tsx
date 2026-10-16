@@ -10,6 +10,9 @@ export type AdminLead = {
   name: string;
   phone: string;
   region: string;
+  age?: number;
+  employees?: number;
+  turnover?: string;
   source: string;
   campaign: string;
   form: string;
@@ -131,12 +134,13 @@ export default function AdminTable({ rows, integrations, prices }: { rows: Admin
         </div>
 
         <div className="mt-4 overflow-x-auto rounded-2xl bg-white ring-1 ring-line">
-          <table className="w-full min-w-[920px] text-left text-sm">
+          <table className="w-full min-w-[1040px] text-left text-sm">
             <thead className="bg-paper text-xs uppercase tracking-wider text-muted">
               <tr>
                 <th className="px-4 py-3">Sana</th>
                 <th className="px-4 py-3">Mijoz</th>
                 <th className="px-4 py-3">Manzil</th>
+                <th className="px-4 py-3">Biznes</th>
                 <th className="px-4 py-3">Manba</th>
                 <th className="px-4 py-3">Holat</th>
                 <th className="px-4 py-3 text-right">Amallar</th>
@@ -151,7 +155,14 @@ export default function AdminTable({ rows, integrations, prices }: { rows: Admin
                     <a href={`tel:${r.phone}`} className="num text-brand">{r.phone}</a>
                     {r.amoLeadId && <p className="text-xs text-muted">amoCRM #{r.amoLeadId}</p>}
                   </td>
-                  <td className="px-4 py-3">{r.region}</td>
+                  <td className="px-4 py-3">
+                    {r.region}
+                    {r.age != null && <p className="text-xs text-muted">{r.age} yosh</p>}
+                  </td>
+                  <td className="px-4 py-3 text-xs">
+                    {r.employees != null ? <p>{r.employees} xodim</p> : <p className="text-muted">—</p>}
+                    {r.turnover && <p className="text-muted">{r.turnover}</p>}
+                  </td>
                   <td className="px-4 py-3 text-xs text-muted">
                     {r.source || "to‘g‘ridan-to‘g‘ri"}{r.campaign && <><br />{r.campaign}</>}{r.form && <><br />forma: {r.form}</>}
                   </td>
@@ -181,7 +192,7 @@ export default function AdminTable({ rows, integrations, prices }: { rows: Admin
                 </tr>
               ))}
               {!list.length && (
-                <tr><td colSpan={6} className="px-4 py-12 text-center text-muted">Lidlar topilmadi</td></tr>
+                <tr><td colSpan={7} className="px-4 py-12 text-center text-muted">Lidlar topilmadi</td></tr>
               )}
             </tbody>
           </table>

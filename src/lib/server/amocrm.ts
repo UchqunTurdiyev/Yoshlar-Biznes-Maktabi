@@ -22,6 +22,9 @@ export type AmoLeadInput = {
   name: string;
   phone: string;
   region: string;
+  age?: number;
+  employees?: number;
+  turnover?: string;
   utm?: Record<string, string>;
   pageUrl?: string;
   siteLeadId: string;
@@ -64,6 +67,9 @@ export async function createAmoLead(input: AmoLeadInput): Promise<number | null>
   const text = [
     "🌐 Saytdan yangi ariza",
     `Manzil: ${input.region}`,
+    `Yoshi: ${input.age ?? "—"}`,
+    `Xodimlar soni: ${input.employees ?? "—"}`,
+    `Aylanma: ${input.turnover || "—"}`,
     `Sahifa: ${input.pageUrl || "—"}`,
     `Sayt ID: ${input.siteLeadId}`,
     "",
