@@ -11,7 +11,7 @@ export default function Pricing() {
   return (
     <section id="narx" className="relative overflow-hidden bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <SectionHeading center eyebrow="Dastur narxi" title={<>Grant bilan — <span className="text-gradient-dark">ikki baravar arzon</span></>} sub="Saralashdan o‘tgan 30 yoshgacha bo‘lgan tadbirkorlarga Yoshlar tadbirkorligini rivojlantirish jamg‘armasi tomonidan 50% grant beriladi." />
+        <SectionHeading center eyebrow="Dastur narxi" title={<>Grant bilan — <span className="text-gradient-dark">70% arzon</span></>} sub="Saralashdan o‘tgan 30 yoshgacha bo‘lgan tadbirkorlarga Yoshlar tadbirkorligini rivojlantirish jamg‘armasi tomonidan 70% grant beriladi." />
 
         <div className="mt-14 grid gap-5 md:grid-cols-[0.85fr_1.15fr]">
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="card flex flex-col justify-between p-7 sm:p-8">

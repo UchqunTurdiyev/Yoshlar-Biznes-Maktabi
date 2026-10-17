@@ -55,7 +55,7 @@ openssl rand -hex 24      # TELEGRAM_WEBHOOK_SECRET va AMO_WEBHOOK_SECRET
 3. Voronka va bosqich ID lari (`AMO_PIPELINE_ID`, `AMO_STATUS_ID`) — voronka sozlamalari URL’ida yoki `GET /api/v4/leads/pipelines` orqali
 4. Purchase uchun webhook: Sozlamalar → Integratsiyalar → **Web hooks** →
    `https://SAYT/api/amocrm/webhook?secret=AMO_WEBHOOK_SECRET`, hodisa: «Статус сделки изменен»
-5. `AMO_PURCHASE_STATUS_IDS` — qaysi bosqich «sotib oldi» hisoblanadi (standart `142`). Lid narxi (budjet) 15 900 000 bo‘lsa «to‘liq», boshqa summa bo‘lsa o‘sha summa yuboriladi.
+5. `AMO_PURCHASE_STATUS_IDS` — qaysi bosqich «sotib oldi» hisoblanadi (standart `142`). Lid narxi (budjet) 16 000 000 bo‘lsa «to‘liq», boshqa summa bo‘lsa o‘sha summa yuboriladi.
 
 ### 3. Telegram
 1. @BotFather → yangi bot → `TELEGRAM_BOT_TOKEN`

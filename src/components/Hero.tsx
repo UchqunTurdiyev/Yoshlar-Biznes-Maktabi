@@ -43,7 +43,7 @@ export default function Hero() {
               { v: <Counter to={12} />, l: "kun (2 oy)" },
               { v: <Counter to={70} suffix="%" />, l: "amaliyot" },
               { v: <Counter to={70} />, l: "ishtirokchi" },
-              { v: <Counter to={210} />, l: "ta grant" },
+              { v: <Counter to={100} />, l: "ta grant" },
             ].map((s, i) => (
               <div key={i} className="glass rounded-2xl px-4 py-3.5">
                 <div className="font-display text-2xl font-semibold text-white sm:text-[1.7rem]">{s.v}</div>

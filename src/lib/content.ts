@@ -53,7 +53,7 @@ export const format = [
 export const uniques = [
   { title: "70% amaliyot", text: "Mashg‘ulotlar amaliy mashg‘ulot va keyslar asosida o‘tadi", icon: "tool" },
   { title: "Praktik ekspertlar", text: "Har bir yo‘nalishda o‘z sohasining tajribali praktik ekspertlari dars beradi", icon: "cap" },
-  { title: "50% grant", text: "Yoshlar tadbirkorligini qo‘llab-quvvatlash jamg‘armasi tomonidan 50% grant", icon: "star" },
+  { title: "70% grant", text: "Yoshlar tadbirkorligini qo‘llab-quvvatlash jamg‘armasi tomonidan 70% grant", icon: "star" },
   { title: "Imtiyozli moliyalashtirish", text: "Dasturdan keyin imtiyozli moliyalashtirish va amaliy qo‘llab-quvvatlov", icon: "key" },
   { title: "Mentorlar va kuratorlar", text: "Butun dastur davomida mentorlar va kuratorlar bilan ishlash", icon: "users" },
 ];
@@ -207,10 +207,10 @@ export const nextStage = [
 ];
 
 export const pricing = {
-  full: 15_900_000,
-  grant: 7_950_000,
-  grantPercent: 50,
-  grantsTotal: 210,
+  full: 16_000_000,
+  grant: 4_800_000,
+  grantPercent: 70,
+  grantsTotal: 100,
 };
 
 export const faq = [
@@ -220,7 +220,7 @@ export const faq = [
   },
   {
     q: "Grant qanday beriladi?",
-    a: "Saralashdan o‘tgan 30 yoshgacha bo‘lgan tadbirkorlarga Yoshlar tadbirkorligini rivojlantirish jamg‘armasi tomonidan 50% grant beriladi. Grant bilan dastur narxi 7 950 000 so‘m. Grantlar soni cheklangan — 210 ta.",
+    a: "Saralashdan o‘tgan 30 yoshgacha bo‘lgan tadbirkorlarga Yoshlar tadbirkorligini rivojlantirish jamg‘armasi tomonidan 70% grant beriladi. Grant bilan dastur narxi 4 800 000 so‘m. Grantlar soni cheklangan — 100 ta.",
   },
   {
     q: "Dastur qancha davom etadi va qayerda o‘tadi?",

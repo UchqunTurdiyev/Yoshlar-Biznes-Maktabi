@@ -9,14 +9,14 @@ import { site } from "@/lib/content";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: { default: `${site.name} — 50% grant bilan amaliy biznes dasturi`, template: `%s · ${site.name}` },
+  title: { default: `${site.name} — 70% grant bilan amaliy biznes dasturi`, template: `%s · ${site.name}` },
   description: site.description,
   keywords: ["Yoshlar Biznes Maktabi", "biznes ta'lim", "yosh tadbirkorlar", "grant", "FAZZA Management School", "Samarqand", "Andijon", "Nukus"],
   openGraph: {
     type: "website",
     locale: "uz_UZ",
     title: `${site.name} — biznesingizni keyingi bosqichga olib chiqing`,
-    description: "12 kunlik oflayn dastur · 70% amaliyot · 50% grant · Andijon, Samarqand, Nukus",
+    description: "12 kunlik oflayn dastur · 70% amaliyot · 70% grant · Andijon, Samarqand, Nukus",
     siteName: site.name,
   },
   robots: { index: true, follow: true },

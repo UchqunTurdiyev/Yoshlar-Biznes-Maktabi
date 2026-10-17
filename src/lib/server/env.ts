@@ -47,8 +47,8 @@ export const env = {
   dataDir: read("DATA_DIR", process.env.VERCEL ? "/tmp/ybm-data" : "./data"),
 
   // Narxlar (so‘m)
-  priceGrant: Number(read("PRICE_GRANT_UZS", "7950000")),
-  priceFull: Number(read("PRICE_FULL_UZS", "15900000")),
+  priceGrant: Number(read("PRICE_GRANT_UZS", "4800000")),
+  priceFull: Number(read("PRICE_FULL_UZS", "16000000")),
 };
 
 export const has = {

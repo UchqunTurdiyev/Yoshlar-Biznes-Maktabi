@@ -18,7 +18,7 @@ export default function Rahmat() {
           Rahmat<ThankYouName />! Arizangiz qabul qilindi
         </h1>
         <p className="mt-4 text-lg text-white/70">
-          Tez orada mutaxassisimiz siz bilan bog‘lanib, saralash bosqichlari va 50% grant shartlari haqida batafsil ma’lumot beradi. Iltimos, telefoningiz yoqilgan bo‘lsin.
+          Tez orada mutaxassisimiz siz bilan bog‘lanib, saralash bosqichlari va 70% grant shartlari haqida batafsil ma’lumot beradi. Iltimos, telefoningiz yoqilgan bo‘lsin.
         </p>
         <div className="mt-8 grid grid-cols-3 gap-3">
           {locations.map((l) => (
