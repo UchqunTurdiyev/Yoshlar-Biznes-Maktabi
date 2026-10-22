@@ -59,9 +59,9 @@ export const uniques = [
 ];
 
 export const locations = [
-  { city: "Andijon", date: "2026-10-31", label: "31.10.2026" },
-  { city: "Samarqand", date: "2026-11-07", label: "07.11.2026" },
-  { city: "Nukus", date: "2026-11-14", label: "14.11.2026" },
+  { city: "Andijon", date: "2026-11-07", label: "07.11.2026" },
+  { city: "Samarqand", date: "2026-11-16", label: "16.11.2026" },
+  { city: "Nukus", date: "2026-11-21", label: "21.11.2026" },
 ];
 
 export const modules = [
@@ -224,7 +224,7 @@ export const faq = [
   },
   {
     q: "Dastur qancha davom etadi va qayerda o‘tadi?",
-    a: "Dastur oflayn formatda, 12 kun (2 oy) davom etadi. Andijon — 31.10.2026, Samarqand — 07.11.2026, Nukus — 14.11.2026 dan boshlanadi.",
+    a: "Dastur oflayn formatda, 12 kun (2 oy) davom etadi. Andijon — 07.11.2026, Samarqand — 16.11.2026, Nukus — 21.11.2026 dan boshlanadi.",
   },
   {
     q: "Darslar qanday o‘tadi?",
