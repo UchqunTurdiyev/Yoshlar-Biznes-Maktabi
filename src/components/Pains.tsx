@@ -17,13 +17,6 @@ export default function Pains() {
               eyebrow="Bu dastur kim uchun"
               title={<>Sizda quyidagi muammolar bo‘lsa, bu dastur <span className="text-gradient-dark">aynan Siz uchun</span></>}
             />
-            <Reveal delay={0.1}>
-              <div className="mt-8 rounded-3xl bg-navy-900 p-6 text-white sm:p-7">
-                <p className="text-[15px] leading-relaxed text-white/80">
-                  Biznesingizni <b className="text-white">tizimli boshqarishga</b> o‘tkazing va <b className="text-white">keyingi bosqichga</b> olib chiqing. 12 kunlik oflayn dastur — 70% amaliyot, praktik ekspertlar va mentorlar bilan.
-                </p>
-              </div>
-            </Reveal>
           </div>
 
           <div className="grid gap-3 sm:grid-cols-2">
