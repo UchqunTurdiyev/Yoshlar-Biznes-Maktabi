@@ -13,6 +13,7 @@ import Faq from "@/components/Faq";
 import FinalCta from "@/components/FinalCta";
 import Footer from "@/components/Footer";
 import MobileBar from "@/components/MobileBar";
+import { MotionProvider } from "@/components/MotionProvider";
 import { faq, locations, pricing, site } from "@/lib/content";
 
 // Eng yaqin oqim/sanalar yangilanib turishi uchun har soatda qayta generatsiya
@@ -44,7 +45,8 @@ export default function Home() {
   };
 
   return (
-    <>
+    // framer-motion faqat bosh sahifada — /kurs kabi yengil sahifalarga yuklanmasin
+    <MotionProvider>
       <Header />
       <main>
         <Hero />
@@ -63,6 +65,6 @@ export default function Home() {
       <Footer />
       <MobileBar />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
-    </>
+    </MotionProvider>
   );
 }

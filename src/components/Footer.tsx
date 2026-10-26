@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { partners, site } from "@/lib/content";
-import { Logo } from "./Header";
+import { Logo } from "./Logo";
 
 export default function Footer() {
   return (

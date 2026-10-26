@@ -4,7 +4,6 @@ import "@fontsource-variable/unbounded";
 import "./globals.css";
 import MetaPixel from "@/components/MetaPixel";
 import { LeadModalProvider } from "@/components/LeadModal";
-import { MotionProvider } from "@/components/MotionProvider";
 import { site } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -33,9 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="uz">
       <body>
-        <MotionProvider>
-          <LeadModalProvider>{children}</LeadModalProvider>
-        </MotionProvider>
+        <LeadModalProvider>{children}</LeadModalProvider>
         <MetaPixel />
       </body>
     </html>

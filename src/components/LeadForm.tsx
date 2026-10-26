@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { regions, turnoverOptions } from "@/lib/content";
 import { getAttribution } from "@/lib/attribution";
@@ -24,7 +23,8 @@ function formatPhone(raw: string) {
 
 type Errors = Partial<Record<"name" | "phone" | "age" | "region" | "employees" | "turnover" | "consent" | "form", string>>;
 
-export default function LeadForm({ variant = "light", source = "form", onDone }: { variant?: "light" | "dark"; source?: string; onDone?: () => void }) {
+// short: faqat ism, telefon, yosh va manzil (/kurs sahifasi uchun)
+export default function LeadForm({ variant = "light", source = "form", short = false, onDone }: { variant?: "light" | "dark"; source?: string; short?: boolean; onDone?: () => void }) {
   const router = useRouter();
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("+998 ");
@@ -58,8 +58,8 @@ export default function LeadForm({ variant = "light", source = "form", onDone }:
     const a = Number(age);
     if (!age || a < 14 || a > 99) e.age = "Yoshingizni kiriting";
     if (!region) e.region = "Manzilni tanlang";
-    if (employees === "") e.employees = "Xodimlar sonini kiriting";
-    if (!turnover) e.turnover = "Aylanmani tanlang";
+    if (!short && employees === "") e.employees = "Xodimlar sonini kiriting";
+    if (!short && !turnover) e.turnover = "Aylanmani tanlang";
     if (!consent) e.consent = "Rozilik talab qilinadi";
     return e;
   }
@@ -83,8 +83,7 @@ export default function LeadForm({ variant = "light", source = "form", onDone }:
           phone,
           age: Number(age),
           region,
-          employees: Number(employees),
-          turnover,
+          ...(short ? {} : { employees: Number(employees), turnover }),
           consent,
           website,
           eventId,
@@ -139,6 +138,7 @@ export default function LeadForm({ variant = "light", source = "form", onDone }:
         </div>
         {errors.region && <p className={err}>{errors.region}</p>}
       </div>
+      {!short && <>
       <div>
         <label htmlFor={`employees-${source}`} className={label}>Xodimlar soni</label>
         <input id={`employees-${source}`} name="employees" type="text" inputMode="numeric" maxLength={6} placeholder="Masalan: 5" value={employees} onChange={(e) => setEmployees(e.target.value.replace(/\D/g, "").slice(0, 6))} className={`${field} num`} aria-invalid={!!errors.employees} />
@@ -157,6 +157,7 @@ export default function LeadForm({ variant = "light", source = "form", onDone }:
         </div>
         {errors.turnover && <p className={err}>{errors.turnover}</p>}
       </div>
+      </>}
 
       {/* Honeypot: odamlarga ko‘rinmaydi, botlar to‘ldiradi */}
       <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
@@ -172,13 +173,11 @@ export default function LeadForm({ variant = "light", source = "form", onDone }:
       </label>
       {errors.consent && <p className={err}>{errors.consent}</p>}
 
-      <AnimatePresence>
-        {errors.form && (
-          <motion.p initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="rounded-xl bg-red-500/10 px-3 py-2 text-sm font-semibold text-red-500" role="alert">
-            {errors.form}
-          </motion.p>
-        )}
-      </AnimatePresence>
+      {errors.form && (
+        <p className="rounded-xl bg-red-500/10 px-3 py-2 text-sm font-semibold text-red-500" role="alert">
+          {errors.form}
+        </p>
+      )}
 
       <button type="submit" disabled={loading} className="group relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl bg-amber px-6 py-4 text-base font-extrabold text-navy-950 shadow-[0_12px_30px_-10px_rgb(255_181_71/0.7)] transition hover:bg-amber-600 disabled:cursor-wait disabled:opacity-80">
         <span className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-white/40 blur-md animate-shine" />
