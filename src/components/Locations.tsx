@@ -13,8 +13,8 @@ export default function Locations() {
   return (
     <section className="relative overflow-hidden bg-paper py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <SectionHeading center eyebrow="Joy va sanalar" title={<>Dastur <span className="text-gradient-dark">3 ta shaharda</span> boshlanadi</>} sub="O‘zingizga qulay shaharni tanlang — o‘rinlar soni har bir oqimda cheklangan." />
-        <div className="mt-14 grid gap-5 md:grid-cols-3">
+        <SectionHeading center eyebrow="Joy va sanalar" title={<>Dastur <span className="text-gradient-dark">2 ta shaharda</span> boshlanadi</>} sub="O‘zingizga qulay shaharni tanlang — o‘rinlar soni har bir oqimda cheklangan." />
+        <div className="mt-14 grid gap-5 mx-auto max-w-4xl md:grid-cols-2">
           {locations.map((l, i) => {
             const isNext = next?.city === l.city;
             const past = new Date(`${l.date}T09:00:00+05:00`).getTime() < Date.now();

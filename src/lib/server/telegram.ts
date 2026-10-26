@@ -13,7 +13,18 @@ export async function tg<T = unknown>(method: string, body: Record<string, unkno
       body: JSON.stringify(body),
       cache: "no-store",
     });
-    const json = (await res.json()) as { ok: boolean; result?: T; description?: string };
+    const json = (await res.json()) as {
+      ok: boolean;
+      result?: T;
+      description?: string;
+      parameters?: { migrate_to_chat_id?: number };
+    };
+    // Guruh supergroupga aylansa chat ID o‘zgaradi — lid yo‘qolmasin, yangi ID ga qayta yuboramiz
+    const migrated = json.parameters?.migrate_to_chat_id;
+    if (!json.ok && migrated && body.chat_id !== migrated) {
+      console.error(`[TG] chat ${body.chat_id} supergroupga aylangan → TELEGRAM_CHAT_IDS ni ${migrated} ga almashtiring`);
+      return tg<T>(method, { ...body, chat_id: migrated });
+    }
     if (!json.ok) {
       console.error(`[TG] ${method} xato:`, json.description);
       return null;
