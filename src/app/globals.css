@@ -142,3 +142,6 @@ input, select, button, textarea { font: inherit; }
     transition-duration: 0.01ms !important;
   }
 }
+
+/* /kurs: yengil rejim — doimiy "shine" animatsiyasi o‘chirilgan */
+.kurs-lite .animate-shine { display: none; }

@@ -22,9 +22,9 @@ const orderedMentors = mentorOrder.map((n) => mentors.find((m) => m.name === n))
 
 // Bosh sahifadagi 7 ta muammo o‘rniga — asosiy 3 ta og‘riq
 const pains = [
-  { title: "Hamma ishni o‘zim qilaman, tizim yo‘q, moliya hisobi chiqmaydi", icon: "system" },
-  { title: "Marketing umuman yo‘q, strategiya qilinmagan", icon: "ads" },
-  { title: "Sotuv past, mijozlar oqimi barqaror emas", icon: "sales" },
+  { label: "Mijoz", text: "Reklamaga pul ketyapti-yu, lekin ishlamayapti. Lid narxi qimmat, mijozlar raqobatchilarga o‘tib ketmoqda.", icon: "users" },
+  { label: "Pul", text: "Kassada uzilishlar, nasiyadagi pullar qaytmayapti, qancha foyda qilganingizni ham aniq bilmaysiz.", icon: "cash" },
+  { label: "Tizim", text: "Hamma ishni o‘zingiz qilasiz, shuning uchun biznes bir joyda qotib qolgan va qanday kengayishni bilmaysiz.", icon: "system" },
 ];
 
 const ticker = [
@@ -47,12 +47,10 @@ const h2 = "mt-4 font-display text-[1.75rem] font-semibold leading-[1.15] tracki
 export default function Kurs() {
   return (
     <>
-      <main>
+      <main className="kurs-lite">
         {/* Sarlavha + muammolar */}
-        <section className="noise relative isolate overflow-hidden bg-navy-950 pb-16 pt-6 text-white sm:pb-20">
+        <section className="relative isolate overflow-hidden bg-navy-950 pb-16 pt-6 text-white sm:pb-20">
           <div className="bg-grid absolute inset-0 -z-10" />
-          <div className="absolute -left-40 top-10 -z-10 h-[460px] w-[460px] rounded-full bg-brand/50 blur-[120px]" />
-          <div className="absolute -right-32 bottom-0 -z-10 h-[380px] w-[380px] rounded-full bg-amber/10 blur-[110px]" />
 
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <div className="flex items-center justify-between gap-4">
@@ -60,10 +58,14 @@ export default function Kurs() {
               <CtaButton source="kurs-header" className="!px-4 !py-2.5 text-sm">Ariza qoldirish</CtaButton>
             </div>
 
-            <h1 className="mt-12 max-w-3xl text-[17px] font-semibold leading-[1.9] text-white/85 sm:mt-16 sm:text-[19px] lg:text-[21px]">
-              <span className="mb-4 block font-display text-[22px] font-semibold leading-[1.4] tracking-tight sm:text-[28px] lg:text-[32px]"><span className="text-gradient">FAZZA: Yoshlar Biznes Maktabi</span></span>
-              yosh tadbirkorlarning biznesni professional boshqarish bo‘yicha amaliy ko‘nikmalarini rivojlantirish va yangi brendlarning yetishib chiqishiga ko‘maklashishga qaratilgan biznes ta’lim dasturi.
+            <h1 className="mt-12 font-display text-[2.4rem] font-bold leading-[1.05] tracking-tight sm:mt-16 sm:text-6xl lg:text-[4.4rem]">
+              FAZZA <span className="text-gradient">Yoshlar Biznes</span>
+              <br />
+              Maktabi
             </h1>
+            <p className="mt-6 max-w-2xl text-base leading-[1.9] text-white/75 sm:text-lg">
+              Yosh tadbirkorlarning biznesni professional boshqarish bo‘yicha amaliy ko‘nikmalarini rivojlantirish va yangi brendlarning yetishib chiqishiga ko‘maklashishga qaratilgan biznes ta’lim dasturi.
+            </p>
 
             <p className="mt-10 flex items-center gap-3 rounded-2xl bg-amber px-5 py-4 font-display text-lg font-semibold leading-snug text-navy-950 shadow-[0_14px_34px_-12px_rgb(255_181_71/0.75)] sm:inline-flex sm:px-6 sm:text-2xl">
               <Icon name="alert" className="h-6 w-6 shrink-0 sm:h-7 sm:w-7" />
@@ -72,9 +74,12 @@ export default function Kurs() {
 
             <ul className="mt-6 grid gap-3 md:grid-cols-3">
               {pains.map((p) => (
-                <li key={p.title} className="glass flex items-center gap-4 rounded-2xl p-5">
-                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-red-500/15 text-red-300"><Icon name={p.icon} className="h-6 w-6" /></span>
-                  <span className="text-base font-bold leading-snug sm:text-lg">{p.title}</span>
+                <li key={p.label} className="bg-white/[0.06] ring-1 ring-inset ring-white/10 rounded-2xl p-5">
+                  <p className="flex items-center gap-3">
+                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-red-500/15 text-red-300"><Icon name={p.icon} className="h-6 w-6" /></span>
+                    <span className="font-display text-lg font-semibold uppercase tracking-wide text-amber">{p.label}</span>
+                  </p>
+                  <p className="mt-3 text-[15px] leading-relaxed text-white/85">{p.text}</p>
                 </li>
               ))}
             </ul>
@@ -106,7 +111,7 @@ export default function Kurs() {
                 <h2 className="mt-4 font-display text-2xl font-semibold">Eng faol bitiruvchilar uchun</h2>
                 <ul className="mt-6 space-y-3">
                   {nextStage.map((n) => (
-                    <li key={n.text} className="glass flex items-start gap-3.5 rounded-2xl p-4">
+                    <li key={n.text} className="bg-white/[0.06] ring-1 ring-inset ring-white/10 flex items-start gap-3.5 rounded-2xl p-4">
                       <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white/10 text-sky"><Icon name={n.icon} className="h-5 w-5" /></span>
                       <p className="text-[15px] font-semibold leading-snug text-white/90">{n.text}</p>
                     </li>
@@ -133,7 +138,7 @@ export default function Kurs() {
         </section>
 
         {/* Modullar */}
-        <section className="noise relative isolate overflow-hidden bg-navy-950 py-16 text-white sm:py-20">
+        <section className="relative isolate overflow-hidden bg-navy-950 py-16 text-white sm:py-20">
           <div className="bg-grid absolute inset-0 -z-10 opacity-60" />
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <Eyebrow dark>O‘quv dasturi</Eyebrow>
@@ -219,13 +224,11 @@ export default function Kurs() {
                 </div>
               </div>
 
-              <div className="noise relative overflow-hidden rounded-[1.75rem] bg-navy-900 p-7 text-white shadow-2xl shadow-navy-900/30 sm:p-9">
-                <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-brand-400/40 blur-3xl" />
-                <div className="absolute -bottom-24 -left-10 h-60 w-60 rounded-full bg-amber/20 blur-3xl" />
+              <div className="relative overflow-hidden rounded-[1.75rem] bg-navy-900 p-7 text-white sm:p-9">
                 <div className="relative">
                   <div className="flex items-center justify-between gap-3">
                     <p className="text-sm font-bold uppercase tracking-[0.16em] text-sky">Grant olgan tadbirkorlar uchun</p>
-                    <span className="animate-pulse-ring rounded-full bg-amber px-3 py-1 text-xs font-extrabold text-navy-950">−{pricing.grantPercent}%</span>
+                    <span className="rounded-full bg-amber px-3 py-1 text-xs font-extrabold text-navy-950">−{pricing.grantPercent}%</span>
                   </div>
                   <p className="mt-5 whitespace-nowrap font-display text-[2.5rem] font-bold leading-none sm:text-6xl">
                     <span className="num">{formatSum(pricing.grant)}</span>
@@ -248,9 +251,8 @@ export default function Kurs() {
         </section>
 
         {/* Forma */}
-        <section id="ariza-forma" className="noise relative isolate overflow-hidden bg-navy-950 py-16 text-white sm:py-20">
+        <section id="ariza-forma" className="relative isolate overflow-hidden bg-navy-950 py-16 text-white sm:py-20">
           <div className="bg-grid absolute inset-0 -z-10" />
-          <div className="absolute -left-32 bottom-0 -z-10 h-[420px] w-[420px] rounded-full bg-brand/50 blur-[120px]" />
           <div className="mx-auto max-w-xl px-4 sm:px-6">
             <div className="relative rounded-[2rem] bg-navy-900/90 p-6 ring-1 ring-inset ring-white/15 sm:p-8">
               <span className="inline-flex items-center gap-2 rounded-full bg-amber/15 px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-amber">
