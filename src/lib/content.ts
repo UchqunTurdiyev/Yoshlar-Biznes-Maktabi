@@ -6,7 +6,7 @@ export const site = {
   description:
     "Yoshlar ishlari agentligi qoshidagi Yoshlar tadbirkorligini rivojlantirish jamg‘armasi hamda FAZZA Management School hamkorligida tashkil etilgan, yosh tadbirkorlar uchun amaliy biznes ta’lim dasturi.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://example.uz",
-  phone: process.env.NEXT_PUBLIC_CONTACT_PHONE || "",
+  phone: process.env.NEXT_PUBLIC_CONTACT_PHONE || "+998 77 150 00 52",
   telegram: process.env.NEXT_PUBLIC_CONTACT_TELEGRAM || "",
 };
 
