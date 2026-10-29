@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { regions, turnoverOptions } from "@/lib/content";
+import { regions, site, turnoverOptions } from "@/lib/content";
 import { getAttribution } from "@/lib/attribution";
 import { newEventId, track } from "@/lib/pixel";
 import Icon from "./Icons";
@@ -43,6 +43,8 @@ export default function LeadForm({ variant = "light", source = "form", short = f
   }, []);
 
   const dark = variant === "dark";
+  // 30 yoshdan kattalar uchun forma yopiladi — faqat qo‘ng‘iroq qilish mumkin
+  const over30 = Number(age) > 30;
   const field = `w-full rounded-2xl border px-4 py-3.5 text-[15px] outline-none transition placeholder:text-current/40 focus:ring-4 ${
     dark
       ? "border-white/15 bg-white/[0.06] text-white focus:border-amber focus:ring-amber/20"
@@ -66,7 +68,7 @@ export default function LeadForm({ variant = "light", source = "form", short = f
 
   async function submit(ev: React.FormEvent) {
     ev.preventDefault();
-    if (loading) return;
+    if (loading || over30) return;
     const e = validate();
     setErrors(e);
     if (Object.keys(e).length) return;
@@ -111,6 +113,23 @@ export default function LeadForm({ variant = "light", source = "form", short = f
   return (
     <form onSubmit={submit} noValidate className="space-y-4" aria-label="Ariza formasi">
       <div>
+        <label htmlFor={`age-${source}`} className={label}>Yoshingiz</label>
+        <input id={`age-${source}`} name="age" type="text" inputMode="numeric" maxLength={2} placeholder="Masalan: 24" value={age} onChange={(e) => setAge(e.target.value.replace(/\D/g, "").slice(0, 2))} className={`${field} num`} aria-invalid={!!errors.age} />
+        {errors.age && <p className={err}>{errors.age}</p>}
+      </div>
+      {over30 ? (
+        <div className={`rounded-2xl border p-4 text-center ${dark ? "border-white/15 bg-white/[0.06]" : "border-line bg-white"}`}>
+          <p className={`text-sm leading-relaxed ${dark ? "text-white/80" : "text-ink/80"}`}>
+            Grant 30 yoshgacha bo‘lgan tadbirkorlar uchun. Dastur haqida batafsil ma’lumot olish uchun bizga qo‘ng‘iroq qiling.
+          </p>
+          {site.phone && (
+            <a href={`tel:${site.phone.replace(/\s/g, "")}`} className="mt-4 flex w-full items-center justify-center gap-2 rounded-2xl bg-amber px-6 py-4 text-base font-extrabold text-navy-950 transition hover:bg-amber-600">
+              <Icon name="phone" className="h-5 w-5" /> Qo‘ng‘iroq qilish: {site.phone}
+            </a>
+          )}
+        </div>
+      ) : <>
+      <div>
         <label htmlFor={`name-${source}`} className={label}>Ismingiz</label>
         <input id={`name-${source}`} name="name" autoComplete="given-name" maxLength={60} placeholder="Masalan: Jasur" value={name} onChange={(e) => setName(e.target.value)} className={field} aria-invalid={!!errors.name} />
         {errors.name && <p className={err}>{errors.name}</p>}
@@ -119,11 +138,6 @@ export default function LeadForm({ variant = "light", source = "form", short = f
         <label htmlFor={`phone-${source}`} className={label}>Telefon raqamingiz</label>
         <input id={`phone-${source}`} name="phone" type="tel" inputMode="tel" autoComplete="tel" value={phone} onChange={(e) => setPhone(formatPhone(e.target.value))} onFocus={() => phone.length < 5 && setPhone("+998 ")} className={`${field} num`} placeholder="+998 (90) 123-45-67" aria-invalid={!!errors.phone} />
         {errors.phone && <p className={err}>{errors.phone}</p>}
-      </div>
-      <div>
-        <label htmlFor={`age-${source}`} className={label}>Yoshingiz</label>
-        <input id={`age-${source}`} name="age" type="text" inputMode="numeric" maxLength={2} placeholder="Masalan: 24" value={age} onChange={(e) => setAge(e.target.value.replace(/\D/g, "").slice(0, 2))} className={`${field} num`} aria-invalid={!!errors.age} />
-        {errors.age && <p className={err}>{errors.age}</p>}
       </div>
       <div>
         <label htmlFor={`region-${source}`} className={label}>Manzilingiz (viloyat)</label>
@@ -196,6 +210,7 @@ export default function LeadForm({ variant = "light", source = "form", short = f
       <p className={`flex items-center justify-center gap-1.5 text-[11px] ${dark ? "text-white/45" : "text-muted/80"}`}>
         <Icon name="lock" className="h-3.5 w-3.5" /> Ma’lumotlaringiz shifrlangan holda saqlanadi
       </p>
+      </>}
     </form>
   );
 }
