@@ -11,18 +11,18 @@ export const site = {
 };
 
 export const partners = [
-  { name: "Yoshlar ishlari agentligi", src: "/images/partners/agentlik.png", w: 900, h: 252 },
-  { name: "Yoshlar tadbirkorligini rivojlantirish jamg‘armasi", src: "/images/partners/jamgarma.png", w: 1287, h: 411 },
-  { name: "FAZZA Management School", src: "/images/partners/fazza.png", w: 1310, h: 267 },
+  { name: "Yoshlar ishlari agentligi", src: "/images/partners/agentlik.webp", w: 251, h: 64 },
+  { name: "Yoshlar tadbirkorligini rivojlantirish jamg‘armasi", src: "/images/partners/jamgarma.webp", w: 204, h: 64 },
+  { name: "FAZZA Management School", src: "/images/partners/fazza.webp", w: 316, h: 64 },
 ];
 
 // Maktabni bitirgan asoschilarning brendlari (karusel). fit: "contain" — keng, oq fonli logolar kesilmasligi uchun
 export const alumniBrands = [
-  { name: "PIPLS", src: "/images/alumni/pipls.jpg", fit: "cover" },
-  { name: "YESS!", src: "/images/alumni/yess.jpg", fit: "cover" },
-  { name: "q.watt", src: "/images/alumni/qwatt.jpg", fit: "cover" },
-  { name: "SAN SEB", src: "/images/alumni/sanseb.jpg", fit: "cover" },
-  { name: "DATA ta’lim stansiyasi", src: "/images/alumni/data.jpg", fit: "contain" },
+  { name: "PIPLS", src: "/images/alumni/pipls.webp", fit: "cover" },
+  { name: "YESS!", src: "/images/alumni/yess.webp", fit: "cover" },
+  { name: "q.watt", src: "/images/alumni/qwatt.webp", fit: "cover" },
+  { name: "SAN SEB", src: "/images/alumni/sanseb.webp", fit: "cover" },
+  { name: "DATA ta’lim stansiyasi", src: "/images/alumni/data.webp", fit: "contain" },
 ] as const;
 
 export const painPoints = [
@@ -162,28 +162,28 @@ export const mentors = [
   {
     name: "Jamoliddin Shodiev",
     title: "MBA · FAZZA Management School asoschisi",
-    photo: "/images/mentors/jamoliddin-shodiev.jpg",
+    photo: "/images/mentors/jamoliddin-shodiev.webp",
     highlight: "16 yil boshqaruv tajribasi",
     bio: "Biznesning strategik va moliyaviy boshqaruvi bo‘yicha ekspert, Koreyaning Sejong universiteti MBA darajasiga ega, FAZZA Management School asoschisi, O‘zbekistonda o‘zbek tilida tadbirkorlar uchun birinchi FAZZA TOP CEO amaliy MBA dasturi asoschisi. Boshqaruv sohasida 16 yillik amaliy tajribaga ega. Moliya vazirligi tizimida, xalqaro va mahalliy kompaniyalarda, jumladan EVO, EMU, SOF GROUP kompaniyalarida TOP lavozimlarida faoliyat olib borgan. Bulut, Cambridge LC, Najot ta’lim, Mars IT kompaniyalarida uzoq muddatli strategiyani ishlab chiqish bo‘yicha strategik sessiyalarni tashkil qilgan.",
   },
   {
     name: "Otabek Umarov",
     title: "Head of Business Transformation, Veolia Energy Tashkent",
-    photo: "/images/mentors/otabek-umarov.jpg",
+    photo: "/images/mentors/otabek-umarov.webp",
     highlight: "28 yil tajriba",
     bio: "Veolia Energy Tashkent kompaniyasida “Head of Business Transformation” lavozimida faoliyat yuritadi. Strategik boshqaruv va moliyaviy boshqaruv sohasida 28 yillik tajribaga ega. Professional karyerasi davomida O‘zbekistonda UZBAT, UzCaseMash, IFODA, Rozmetov va Rossiyada Skolkovo Biznes Maktabi, SIBUR kompaniyalar guruhi, ACNielsen Cyprus, “Bazoviy element” kompaniyalar guruhida TOP lavozimlarda ishlagan. Strategik va operatsion boshqaruv, moliya, biznesni tizimlashtirish, investitsiyalarni baholash, qo‘shimcha moliyaviy resurslarni jalb qilish, risklarni boshqarish bo‘yicha professional mutaxassis.",
   },
   {
     name: "Habibullo Sadulloev",
     title: "Marketing strategi, Proactive marketing agentligi",
-    photo: "/images/mentors/habibullo-sadulloev.jpg",
+    photo: "/images/mentors/habibullo-sadulloev.webp",
     highlight: "10+ yil marketing",
     bio: "10 yildan buyon yirik korxonalarning marketing va boshqaruv yo‘nalishida, xususan Chortoq mineral water, Samsung Electronics Uzbekistan kabi korxonalarda faoliyat yuritgan. Ahmad Tea Uzbekistan, Impuls tibbiyot instituti, Zahratun supermarketlar tarmog‘i, Najot Nur, Gekto, Tashkent Metal, Mfaktor kabi loyihalarda marketing strategiyalarini tuzgan. Cubic — top menejerlar va biznes egalari hamjamiyati hammuassisi. “Marketing maximum” o‘quv kursi muallifi va mentori. Ayni damda Proactive marketing agentligida kichik va o‘rta bizneslar uchun marketing strategiyalari bilan shug‘ullanadi.",
   },
   {
     name: "Nodirbek Kuzdekov",
     title: "Biznes-trener, konsultant va mentor",
-    photo: "/images/mentors/nodirbek-kuzdekov.jpg",
+    photo: "/images/mentors/nodirbek-kuzdekov.webp",
     highlight: "20+ yil tajriba",
     bio: "Ta’lim, savdo, marketing va tizimli boshqaruv sohalarida 20 yildan ortiq tajribaga ega biznes-trener, konsultant va mentor. 6 yildan ortiq Toshkentdagi UNESCO vakolatxonasi ta’lim dasturlarida, 11 yildan ortiq COSCOM (TM “Ucell”) kompaniyasida treyd marketing, korporativ sotuvlar, B2B marketing, xalqaro aloqa va rouming yo‘nalishlarida rahbarlik lavozimlarida ishlagan. 4 yildan ortiq savdo va ishlab chiqarish korxonalari guruhida Tijorat direktori va Ijrochi direktor bo‘lgan. British Embassy, Nestlé, Cisco, Dell, UzAuto, NBU, Hamkorbank, AKFA, Safia, Beeline, Click, Payme, Texnomart va boshqa ko‘plab kompaniyalar bilan hamkorlik qilgan.",
   },

@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   alternates: { canonical: "/kurs" },
 };
 
+// Build vaqtida tayyor HTML bo‘lib chiqadi — server hech narsa hisoblamaydi
+export const dynamic = "force-static";
+
 const totalDays = modules.reduce((s, m) => s + m.days, 0);
 
 // Rasmdagi tartib: Otabek, Habibullo, Nodirbek, Jamoliddin

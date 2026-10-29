@@ -39,7 +39,7 @@ export default function MentorCarousel({ items }: { items: Mentor[] }) {
       {items.map((m) => (
         <article key={m.name} className="relative w-[calc(50%-6px)] shrink-0 snap-start overflow-hidden rounded-3xl bg-navy-900 lg:w-[calc(25%-15px)]">
           <div className="relative aspect-[3/4]">
-            <Image src={m.photo} alt={m.name} fill sizes="(min-width:1024px) 280px, 50vw" quality={55} className="object-cover object-top" />
+            <Image src={m.photo} alt={m.name} fill sizes="(min-width:1024px) 280px, 50vw" unoptimized className="object-cover object-top" />
             <div className="absolute inset-0 bg-gradient-to-t from-navy-950/95 via-navy-950/20 to-transparent" />
             <span className="absolute left-2.5 top-2.5 rounded-full bg-white/90 px-2.5 py-1 text-[10px] font-extrabold text-navy-900 sm:left-4 sm:top-4 sm:text-xs">{m.highlight}</span>
             <div className="absolute inset-x-0 bottom-0 p-3 text-white sm:p-5">

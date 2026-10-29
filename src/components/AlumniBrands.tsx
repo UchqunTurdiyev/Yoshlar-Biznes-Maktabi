@@ -24,6 +24,7 @@ export default function AlumniBrands() {
                 alt={i < alumniBrands.length ? b.name : ""}
                 fill
                 sizes="(min-width: 640px) 192px, 160px"
+                unoptimized
                 className={b.fit === "contain" ? "object-contain p-3" : "object-cover"}
               />
             </li>

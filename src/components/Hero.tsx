@@ -56,7 +56,7 @@ export default function Hero() {
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/45">Hamkorlikda tashkil etilgan</p>
             <div className="mt-3 inline-flex max-w-full flex-nowrap items-center gap-x-3 rounded-2xl bg-white px-3 py-2.5 shadow-xl sm:gap-x-6 sm:px-5 sm:py-3">
               {partners.map((p) => (
-                <Image key={p.name} src={p.src} alt={p.name} width={p.w} height={p.h} className="h-5 w-auto min-w-0 object-contain sm:h-8" priority />
+                <Image key={p.name} src={p.src} alt={p.name} width={p.w} height={p.h} className="h-5 w-auto min-w-0 object-contain sm:h-8" unoptimized priority />
               ))}
             </div>
           </motion.div>

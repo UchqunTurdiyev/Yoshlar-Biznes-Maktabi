@@ -14,7 +14,7 @@ export default function Footer() {
           </div>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-3 rounded-2xl bg-white px-5 py-3">
             {partners.map((p) => (
-              <Image key={p.name} src={p.src} alt={p.name} width={p.w} height={p.h} className="h-7 w-auto" />
+              <Image key={p.name} src={p.src} alt={p.name} width={p.w} height={p.h} className="h-7 w-auto" unoptimized />
             ))}
           </div>
         </div>

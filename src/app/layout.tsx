@@ -1,10 +1,23 @@
 import type { Metadata, Viewport } from "next";
-import "@fontsource-variable/manrope";
-import "@fontsource-variable/unbounded";
+import localFont from "next/font/local";
 import "./globals.css";
 import MetaPixel from "@/components/MetaPixel";
 import { LeadModalProvider } from "@/components/LeadModal";
 import { site } from "@/lib/content";
+
+// Faqat latin qismi (o‘zbek lotin yozuvi uchun yetarli) — preload bilan, boshqa subsetlar yuklanmaydi
+const manrope = localFont({
+  src: "../../node_modules/@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2",
+  weight: "200 800",
+  variable: "--font-manrope",
+  display: "swap",
+});
+const unbounded = localFont({
+  src: "../../node_modules/@fontsource-variable/unbounded/files/unbounded-latin-wght-normal.woff2",
+  weight: "200 900",
+  variable: "--font-unbounded",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -30,7 +43,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="uz">
+    <html lang="uz" className={`${manrope.variable} ${unbounded.variable}`}>
       <body>
         <LeadModalProvider>{children}</LeadModalProvider>
         <MetaPixel />

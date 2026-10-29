@@ -25,7 +25,7 @@ export default function Mentors() {
               className="group card overflow-hidden !rounded-[1.75rem]"
             >
               <div className="relative aspect-[4/4.3] overflow-hidden bg-navy-900">
-                <Image src={m.photo} alt={m.name} fill sizes="(min-width:1024px) 25vw, (min-width:640px) 50vw, 100vw" className="object-cover object-top transition duration-700 group-hover:scale-105" />
+                <Image src={m.photo} alt={m.name} fill sizes="(min-width:1024px) 25vw, (min-width:640px) 50vw, 100vw" unoptimized className="object-cover object-top transition duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-950/10 to-transparent" />
                 <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-extrabold text-navy-900 backdrop-blur">{m.highlight}</span>
                 <div className="absolute inset-x-0 bottom-0 p-5 text-white">
