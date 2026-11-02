@@ -62,7 +62,7 @@ export default function Kurs() {
             </div>
 
             <h1 className="mt-12 font-display text-[2.4rem] font-bold leading-[1.05] tracking-tight sm:mt-16 sm:text-6xl lg:text-[4.4rem]">
-              FAZZA <span className="text-gradient">Yoshlar Biznes</span>
+              <span className="text-gradient">Yoshlar Biznes</span>
               <br />
               Maktabi
             </h1>
