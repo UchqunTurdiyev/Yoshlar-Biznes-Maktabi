@@ -19,8 +19,8 @@ export const dynamic = "force-static";
 
 const totalDays = modules.reduce((s, m) => s + m.days, 0);
 
-// Rasmdagi tartib: Otabek, Habibullo, Nodirbek, Jamoliddin
-const mentorOrder = ["Otabek Umarov", "Habibullo Sadulloev", "Nodirbek Kuzdekov", "Jamoliddin Shodiev"];
+// Rasmdagi tartib: Otabek, Habibullo, Ravshan, Jamoliddin
+const mentorOrder = ["Otabek Umarov", "Habibullo Sadulloev", "Ravshan Boymatov", "Jamoliddin Shodiev"];
 const orderedMentors = mentorOrder.map((n) => mentors.find((m) => m.name === n)).filter((m) => m !== undefined);
 
 // Bosh sahifadagi 7 ta muammo o‘rniga — asosiy 3 ta og‘riq

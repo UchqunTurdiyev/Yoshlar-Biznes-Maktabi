@@ -181,11 +181,11 @@ export const mentors = [
     bio: "10 yildan buyon yirik korxonalarning marketing va boshqaruv yo‘nalishida, xususan Chortoq mineral water, Samsung Electronics Uzbekistan kabi korxonalarda faoliyat yuritgan. Ahmad Tea Uzbekistan, Impuls tibbiyot instituti, Zahratun supermarketlar tarmog‘i, Najot Nur, Gekto, Tashkent Metal, Mfaktor kabi loyihalarda marketing strategiyalarini tuzgan. Cubic — top menejerlar va biznes egalari hamjamiyati hammuassisi. “Marketing maximum” o‘quv kursi muallifi va mentori. Ayni damda Proactive marketing agentligida kichik va o‘rta bizneslar uchun marketing strategiyalari bilan shug‘ullanadi.",
   },
   {
-    name: "Nodirbek Kuzdekov",
-    title: "Biznes-trener, konsultant va mentor",
-    photo: "/images/mentors/nodirbek-kuzdekov.webp",
-    highlight: "20+ yil tajriba",
-    bio: "Ta’lim, savdo, marketing va tizimli boshqaruv sohalarida 20 yildan ortiq tajribaga ega biznes-trener, konsultant va mentor. 6 yildan ortiq Toshkentdagi UNESCO vakolatxonasi ta’lim dasturlarida, 11 yildan ortiq COSCOM (TM “Ucell”) kompaniyasida treyd marketing, korporativ sotuvlar, B2B marketing, xalqaro aloqa va rouming yo‘nalishlarida rahbarlik lavozimlarida ishlagan. 4 yildan ortiq savdo va ishlab chiqarish korxonalari guruhida Tijorat direktori va Ijrochi direktor bo‘lgan. British Embassy, Nestlé, Cisco, Dell, UzAuto, NBU, Hamkorbank, AKFA, Safia, Beeline, Click, Payme, Texnomart va boshqa ko‘plab kompaniyalar bilan hamkorlik qilgan.",
+    name: "Ravshan Boymatov",
+    title: "Biznes-trener, biznes-kouch va konsultant",
+    photo: "/images/mentors/ravshan-boymatov.webp",
+    highlight: "16 yil tajriba",
+    bio: "Sotuv va biznes strategiya bo‘yicha 16 yillik tajribaga ega mutaxassis. Marwin Brands, Furniglass, Perfect Shoes, Mavis, Bekota kompaniyalarida sotuv va strategiya bo‘yicha loyihalarni amalga oshirgan. Hozirda biznes va shaxsiy transformatsiya bo‘yicha trener, biznes-kouch va konsultant. 1000+ tadbirkorni o‘qitgan, 100 dan ortiq xodimlarni boshqargan, 50 dan ortiq boshqaruvchilarni yetishtirib chiqargan, loyihalarda 30% dan 70% gacha o‘sishga erishgan.",
   },
 ];
 
