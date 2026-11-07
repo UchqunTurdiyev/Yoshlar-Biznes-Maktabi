@@ -35,6 +35,10 @@ export const env = {
     .filter(Boolean),
   tgWebhookSecret: read("TELEGRAM_WEBHOOK_SECRET"),
 
+  // Google Sheets (Apps Script Web App)
+  sheetsUrl: read("GOOGLE_SHEETS_WEBHOOK_URL"),
+  sheetsSecret: read("GOOGLE_SHEETS_SECRET"),
+
   // Xavfsizlik
   adminPassword: read("ADMIN_PASSWORD"),
   sessionSecret: read("SESSION_SECRET"),
@@ -55,5 +59,6 @@ export const has = {
   capi: () => Boolean(env.pixelId && env.capiToken),
   amo: () => Boolean(env.amoBaseUrl && env.amoToken),
   tg: () => Boolean(env.tgToken && env.tgChatIds.length),
+  sheets: () => /^https:\/\/script\.google\.com\//.test(env.sheetsUrl),
   upstash: () => Boolean(env.upstashUrl && env.upstashToken),
 };

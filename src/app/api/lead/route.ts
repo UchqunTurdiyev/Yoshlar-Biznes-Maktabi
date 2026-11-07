@@ -6,6 +6,7 @@ import { sendCapi } from "@/lib/server/meta-capi";
 import { clientIp, sameOrigin } from "@/lib/server/request";
 import { rateLimit, saveLead, sealPII, setOnce, updateLead, type Lead } from "@/lib/server/store";
 import { notifyNewLead } from "@/lib/server/telegram";
+import { appendLeadToSheet } from "@/lib/server/sheets";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -111,7 +112,9 @@ async function handle(req: NextRequest) {
       console.error("[amoCRM] lid yaratilmadi:", (e as Error).message);
     }
     const withAmo = amoLeadId ? { ...lead, amoLeadId } : lead;
+    const sheetTask = appendLeadToSheet({ id, createdAt: lead.createdAt, name: d.name, phone: d.phone, region: d.region, age: d.age, employees: d.employees, turnover: d.turnover, utm: d.utm, pageUrl: d.pageUrl, amoLeadId });
     const tgMsgs = await notifyNewLead(withAmo, { name: d.name, phone: d.phone, region: d.region, age: d.age, employees: d.employees, turnover: d.turnover });
+    await sheetTask;
     if (!stored) return;
     await updateLead(id, (l) => {
       if (amoLeadId) l.amoLeadId = amoLeadId;
